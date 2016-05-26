@@ -1,0 +1,26 @@
+
+
+ce n'est pas (que) pour les thésards, les data scientists et astrophysiciens...
+
+Programmes plus concis, plus simples et plus expressifs
+
+fonctions
+  mathematique
+  pure = sans modifier les paramètres d'appel, toujours le même retour pour les mêmes paramètres
+  disruption par rapport à la programmation impérative
+  ne pas dire comment mais quoi
+
+scala
+  mélange objet et fonctionel
+  on évite les if(conditions) et les boucles
+  fonction peut être une valeur
+  une fonction peut renvoyer une autre fonction
+  une fonction peut prendre une fonction en paramètre
+  chainage de fonctions --> fluent api et dsl
+  plus simple à comprendre
+  immutabilité, stateless --> thread safe, calcul distribuable (map/reduce)
+  inférence de type
+  lazy loading
+  streams : listes potentiellement infinie
+  curry ? application partielle ?
+  scalaIO
