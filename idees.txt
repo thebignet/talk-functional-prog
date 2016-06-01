@@ -2,7 +2,7 @@
 
 ce n'est pas (que) pour les thésards, les data scientists et astrophysiciens...
 
-Programmes plus concis, plus simples et plus expressifs
+
 
 fonctions
   mathematique
