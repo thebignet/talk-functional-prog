@@ -36,29 +36,148 @@
 					</h2>
 				</section>
 				<section>
-					<h1>But</h1>
-					<h2>Programmes plus concis, plus simples et plus expressifs</h2>
+					<h2><font color="#FFA200">But</font></h2>
+					<h3>Programmes plus concis, plus simples et plus expressifs</h3>
+				</section>
+				<section data-background="#FFF">
+					<h1 style="color: #444">Pour faire simple</h1>
+					<h2 style="color: #444">Concerne l'utilisation de fonctions !</h2>
+					<p class="fragment"><img style="border:0; box-shadow:none" src="http://img01.deviantart.net/4a31/i/2012/331/e/2/captain_obvious_by_stuartmcghee-d5mbxhw.jpg" width="30%"/></p>
 				</section>
 				<section>
-					<h1>Rapidement</h1>
-					<h2>Concerne l'utilisation de fonctions !</h2>
+					<h2><font color="#FFA200">Code impératif</font></h2>
+					<h3>Description du <span class="fragment highlight-blue">comment</span> mais pas forcément du <span class="fragment highlight-green">quoi</span></h3>
+					<h3 class="fragment">Changements d'états</h3>
 				</section>
 				<section>
-					<h1>Problématique du code impératif</h1>
-					<h2>Description du comment mais pas forcément du quoi</h2>
-					<h2>Changements d'états</h2>
+					<h2>Code fonctionnel</h2>
+					<h3>Plus déclaratif</h3>
+					<h3>Evite les changements d'états : thread-safe</h3>
+				</section>
+				<section data-background="#FFF">
+					<h2 style="color: #444">Exemples de langages fonctionnels</h2>
+					<div>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="https://s3-eu-west-1.amazonaws.com/s3.housseniawriting.com/wp-content/uploads/2015/11/langage-python.jpg"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.enveille.info/images/Haskell-Logo.svg"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://warpedreality.org/images/logos/perl.gif"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.erlang-factory.com/upload/item/231/Erlang-logo-4-col.png"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://a.pragprog.com/magazines/2013-06/images/elixir-flame__riuc2g__.png"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.techclinch.com/wp-content/uploads/2014/12/LISP_logo_big.png"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.snyxius.com/blog/wp-content/uploads/2015/06/swift-language-logo.jpg"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.godatafy.com/wp-content/uploads/2015/11/scala.png"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.yomeva.com/wp-content/uploads/2014/02/Javascritp_yomeva_developpement.png"/>
+					</div>
 				</section>
 				<section>
-					<h1>Code fonctionnel</h1>
-					<h2>Plus déclaratif</h2>
-					<h2>Evite les changements d'états : thread-safe</h2>
+					<h1>Immutabilité</h1>
+				</section>
+				<section data-background="http://img1.gtsstatic.com/wallpapers/15b90477b0367437553da36d2aabb50e_large.jpeg">
+					<h1>Mutabilité ?</h1>
+				</section>
+				<section data-background="https://i.ytimg.com/vi/8zgJj0HysbM/maxresdefault.jpg">
+					<h1>Mutabilité !</h1>
+					<h2>En dev, c'est plus ça</h2>
 				</section>
 				<section>
-					<h1>Exemples de langages fonctionnels</h1>
+					<h2>Fonction matématique</h2>
+					<p style="text-align: left; font-weight: bold; margin: 0px 100px 20px;">Soit</p>
+					<h3>carré(x) → x * x</h3>
+					<p style="text-align: left; font-weight: bold; margin: 0px 100px 20px;">On a</p>
+					<h3>carré(3) = 9</h3>
 				</section>
 				<section>
-					<h1>Fonctions d'ordre supérieur</h1>
-					<h2>Des fonctions qui prennent d'autres fonctions en paramètre</h2>
+					<h2>Fonction pure</h2>
+					<h3>Les paramètres ne sont pas modifiés</h3>
+					<pre class="fragment" data-fragment-index="0"><code>function carre(x){
+	return x * x;
+}
+					</code></pre>
+					<h3 class="fragment" data-fragment-index="1">carre est une fonction <span class="fragment highlight-green">pure</span></h3>
+				</section>
+				<section>
+					<h2>Fonction pure</h2>
+					<h3>Les paramètres ne sont pas modifiés</h3>
+					<pre class="fragment" data-fragment-index="0"><code>function incr(x){
+	return x++;
+}
+					</code></pre>
+					<h3 class="fragment" data-fragment-index="1">incr n'est pas une fonction <span class="fragment highlight-red">pure</span></h3>
+				</section>
+				<section>
+					<h2>Fonctions d'ordre supérieur</h2>
+					<h3>Fonctions qui prennent d'autres fonctions en paramètre</h3>
+					<h3 class="fragment">mult(x,y) → x * y</h3>
+					<h3 class="fragment">paire(f,x) → f(x,x)</h3>
+					<h3 class="fragment">carre(x) → paire(mult,x)</h3>
+				</section>
+				<section>
+					<h2>JavaScript</h2>
+					<h3>Callbacks</h3>
+					<pre class="fragment" data-fragment-index="0"><code>// Simple GET request example:
+$http({
+  method: 'GET',
+  url: '/someUrl'
+}).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+</code></pre>
+  					<h3 class="fragment">Permet d'exprimer un comportement</h3>
+				</section>
+				<section>
+					<h2><font color="#a11b26">Scala</font></h2>
+					<h3>Langage basé sur la JVM</h3>
+					<h3>Fonctionnel <span style="text-decoration: underline">et</span> Objet</h3>
+					<h3>Fortement typé</h3>
+					<h3>Inférence de type</h3>
+				</section>
+				<section>
+					<h2>Type de définition</h2>
+					<ul>
+						<li><font color="#FFA200">var</font> variable (mutable)</li>
+						<li><font color="#FFA200">val</font> valeur (immutable)</li>
+						<li><font color="#FFA200">def</font> définition de fonction</li>
+					</ul>
+					<h3>Immutabilité fait partie du langage</h3>
+				</section>
+				<section>
+					<h2>Exemple</h2>
+					<h3>Fonction en paramètre</h3>
+					<pre class="fragment" data-fragment-index="0"><code>def mult(a: Long, b: Long): Long = a * b
+def paire(f: (Long, Long) => Long, x: Long) = f(x, x)
+def carre(x: Long) = paire(mult, x)
+</code></pre>
+				</section>
+				<section>
+					<h2>Exemple</h2>
+					<h3>Fonction en retour</h3>
+					<pre class="fragment" data-fragment-index="0"><code>def puissance(x:Long) = (y:Long) => Math.pow(y,x)
+def carre2(x: Long) = puissance(2)(x)</code></pre>
+				</section>
+				<section>
+					<h2>Von Neumann</h2>
+					<h3>Machine à état</h3>
+					<h3>Eviter les "if" dans le code</h3>
+					<pre class="fragment" data-fragment-index="0"><code>def titre(x: Any): String = x match {
+  case 1 => "un"
+  case "Jean" => "Juan"
+  case Personne(nom, age) => s"Monsieur ${nom} agé de ${age} ans"
+  case nom: String => nom
+  case _ => ""
+}</code></pre>
+				</section>
+				<section data-background="#000">
+					<h2>One more thing</h2>
+				</section>
+				<section data-background="#000">
+					<img style="border: 0" src="http://scala.io/assets/images/logos/scalaio/scalaio_medium.png"/>
+					<h2>www.scala.io</h2>
+					<h3>Lyon</h3>
+					<h3>27 et 28 octobre 2016</h3>
+					<h3>Early birds encore disponibles !</h3>
 				</section>
 			</div>
 		</div>
