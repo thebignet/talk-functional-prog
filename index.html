@@ -36,8 +36,20 @@
 					</h2>
 				</section>
 				<section>
+					<h2><font color="#FFA200">Coopnet</font></h2>
+					<ul>
+						<li>Coupez vos micros si vous ne prenez pas la parole</li>
+						<li>Utilisez les actions (plus vite, moins vite, lever la main) pour réagir</li>
+						<li>Si possible garder les questions pour la fin</li>
+					</ul>
+				</section>
+				<section>
 					<h2><font color="#FFA200">But</font></h2>
-					<h3>Programmes plus concis, plus simples et plus expressifs</h3>
+					<ul>
+						<li>plus <font color="#FFA200">concis</font></li>
+						<li>plus <font color="#FFA200">simple</font></li>
+						<li>plus <font color="#FFA200">expressif</font></li>
+					</ul>
 				</section>
 				<section data-background="#FFF">
 					<h1 style="color: #444">Pour faire simple</h1>
@@ -50,9 +62,10 @@
 					<h3 class="fragment">Changements d'états</h3>
 				</section>
 				<section>
-					<h2>Code fonctionnel</h2>
+					<h2><font color="#FFA200">Code fonctionnel</font></h2>
 					<h3>Plus déclaratif</h3>
-					<h3>Evite les changements d'états : thread-safe</h3>
+					<h3>Evite les changements d'états → thread-safe</h3>
+					<h3>Plus simple à comprendre pour un débutant</h3>
 				</section>
 				<section data-background="#FFF">
 					<h2 style="color: #444">Exemples de langages fonctionnels</h2>
@@ -66,6 +79,7 @@
 						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.snyxius.com/blog/wp-content/uploads/2015/06/swift-language-logo.jpg"/>
 						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.godatafy.com/wp-content/uploads/2015/11/scala.png"/>
 						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="http://www.yomeva.com/wp-content/uploads/2014/02/Javascritp_yomeva_developpement.png"/>
+						<img class="fragment" style="border:0; box-shadow:none" width="18%" src="https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png"/>
 					</div>
 				</section>
 				<section>
@@ -102,11 +116,16 @@
 					<h3 class="fragment" data-fragment-index="1">incr n'est pas une fonction <span class="fragment highlight-red">pure</span></h3>
 				</section>
 				<section>
+					<h2>Toutes les propriétés et bénéfices de la programmation fonctionnelle sont dérivées de l'absence d'effets secondaires lors de l'application d'une fonction</h2>
+				</section>
+				<section>
 					<h2>Fonctions d'ordre supérieur</h2>
 					<h3>Fonctions qui prennent d'autres fonctions en paramètre</h3>
-					<h3 class="fragment">mult(x,y) → x * y</h3>
-					<h3 class="fragment">paire(f,x) → f(x,x)</h3>
-					<h3 class="fragment">carre(x) → paire(mult,x)</h3>
+					<h4 class="fragment">mult(x,y) → x * y</h4>
+					<h4 class="fragment">paire(f,x) → f(x,x)</h4>
+					<h4 class="fragment">carre(x) → paire(mult,x)</h4>
+					<h3 class="fragment">Fonctions qui retourne une fonction</h3>
+					<h4 class="fragment">puissance(n) → x → x ^ n</h4>
 				</section>
 				<section>
 					<h2>JavaScript</h2>
@@ -136,7 +155,7 @@ $http({
 					<h3>Inférence de type</h3>
 				</section>
 				<section>
-					<h2>Type de définition</h2>
+					<h2>Types de définition</h2>
 					<ul>
 						<li><font color="#FFA200">var</font> variable (mutable)</li>
 						<li><font color="#FFA200">val</font> valeur (immutable)</li>
