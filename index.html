@@ -49,6 +49,7 @@
 						<li>plus <font color="#FFA200">concis</font></li>
 						<li>plus <font color="#FFA200">simple</font></li>
 						<li>plus <font color="#FFA200">expressif</font></li>
+						<li>moins <font color="#FFA200">de bugs</font></li>
 					</ul>
 				</section>
 				<section data-background="#FFF">
@@ -97,7 +98,7 @@
 				<section>
 					<h1>Immutabilité</h1>
 				</section>
-				<section data-background="http://img1.gtsstatic.com/wallpapers/15b90477b0367437553da36d2aabb50e_large.jpeg">
+				<section data-background="http://i.vimeocdn.com/video/476889405_1280x720.jpg">
 					<h1>Mutabilité ?</h1>
 				</section>
 				<section data-background="https://i.ytimg.com/vi/8zgJj0HysbM/maxresdefault.jpg">
@@ -131,6 +132,8 @@ solde après une pénalité de 20€ : -25€</code></pre>
 				<section>
 					<h2>Fonction pure</h2>
 					<h3>Les paramètres ne sont pas modifiés</h3>
+					<h3>Ne dépend pas d'un système externe</h3>
+					<h3>Ne lève pas d'exception</h3>
 					<pre class="fragment" data-fragment-index="0"><code>function carre(x){
 	return x * x;
 }</code></pre>
@@ -162,56 +165,47 @@ solde après une pénalité de 20€ : -25€</code></pre>
 					<pre><code>solde après deux agios : -30€</code></pre>
 				</section>
 				<section>
-					<pre><code>public class Agios {
-  public static void main(String[] args) throws Exception {
-    Compte compte = new Compte(0)
-        .agios(10)
-        .agios(20);
-    System.out.println("solde après deux agios : " + compte.solde + "€");
-  }
-  private static class Compte {
-    final int solde;
-    private Compte(int solde) {
-      this.solde = solde;
-    }
-    Compte agios(int montant){
-      return new Compte(solde-montant);
-    }
-  }
-}
-</code></pre>
-					<pre><code>solde après deux agios : -30€</code></pre>
-				</section>
-				<section>
+					<h3>Jugement <i>quasi</i>-majoritaire</h3>
 					<pre><code>val elu = List(
   ("A",1),("A",1),("A",2),("A",5),("A",5),
   ("B",1),("B",1),("B",1),("B",2),("B",2),
   ("C",2),("C",2),("C",3),("C",4),("C",4)
 )
-.groupBy(_._1) // grouper par candidat
+.groupBy(_._1) // pour chacun des candidats
 .mapValues(_
-  .map(_._2) // on travaille sur les scores
-  .sorted // on les trie
+  .map(_._2)
+  .sorted // on les trie par score
   .drop(1) // on supprime le premier
   .dropRight(1) // et le dernier
 )
-.mapValues(l => l.sum.toFloat / l.length) // moyenne du résultat
+.mapValues(l => l.sum.toFloat / l.length) // ensuite, on prend la moyenne du score
 .maxBy(_._2) // on garde celui qui a la meilleure moyenne
-._1 // on garde le nom du candidat
+._1 // puis on garde le nom du candidat
 println(elu)</code></pre>
-					<h3>Le code transcrit directement les règles métier</h3>
+					<h3>Le code traduit directement les règles métier</h3>
+				</section>
+				<section>
+					<h2>Mais encore</h2>
+					<h3>passer des fonctions en paramètre</h3>
+					<h3>Composer des fonctions</h3>
+					<h3>Typage fort</h3>
+				</section>
+				<section>
+					<h2>Utilisations de la programmation fonctionnelle</h2>
+					<h3>MapReduce</h3>
+					<h3>React, Redux</h3>
+					<h3>Reactive Manifesto ...</h3>
+					<h3>SQL ???</h3>
 				</section>
 				<section data-background="#000">
 					<img style="border: 0" src="http://scala.io/assets/images/logos/scalaio/scalaio_medium.png"/>
-					<h2>www.scala.io</h2>
+					<h2>scala.io</h2>
 					<h3>Lyon</h3>
 					<h3>2 et 3 novembre 2017</h3>
-					<h3>Early birds encore disponibles !</h3>
-				</section>
-				<section data-background="#000">
-					<h2>Questions ?</h2>
+					<h3>Early Birds encore disponibles !</h3>
 				</section>
 				<section class="has-light-background" data-background-color="#ffffff">
+					<h2><font color="#000">Questions ?</font></h2>
 					<h2><font color="#000">Merci pour votre écoute</font></h2>
 					<ul>
 						<li><img class="no-shadow inline" src="img/twitter-logo.png" style="height:1em"/> <a href="https://twitter.com/thebignet">@thebignet</a></li>
