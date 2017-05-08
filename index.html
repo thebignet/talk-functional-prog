@@ -80,18 +80,18 @@
 				<section data-background="#FFF">
 					<h2 style="color: #444">Exemples de langages fonctionnels</h2>
 					<div>
-						<img class="fragment no-shadow" width="15%" src="https://s3-eu-west-1.amazonaws.com/s3.housseniawriting.com/wp-content/uploads/2015/11/langage-python.jpg"/>
-						<img class="fragment no-shadow" width="15%" src="http://www.enveille.info/images/Haskell-Logo.svg"/>
-						<img class="fragment no-shadow" width="15%" src="http://warpedreality.org/images/logos/perl.gif"/>
-						<img class="fragment no-shadow" width="15%" src="http://www.erlang-factory.com/upload/item/231/Erlang-logo-4-col.png"/>
-						<img class="fragment no-shadow" width="15%" src="http://a.pragprog.com/magazines/2013-06/images/elixir-flame__riuc2g__.png"/>
-						<img class="fragment no-shadow" width="15%" src="http://www.techclinch.com/wp-content/uploads/2014/12/LISP_logo_big.png"/>
-						<img class="fragment no-shadow" width="15%" src="http://www.snyxius.com/blog/wp-content/uploads/2015/06/swift-language-logo.jpg"/>
-						<img class="fragment no-shadow" width="15%" src="http://www.godatafy.com/wp-content/uploads/2015/11/scala.png"/>
-						<img class="fragment no-shadow" width="15%" src="http://www.yomeva.com/wp-content/uploads/2014/02/Javascritp_yomeva_developpement.png"/>
-						<img class="fragment no-shadow" width="15%" src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/550px-Java_Logo.svg.png"/>
-						<img class="fragment no-shadow" width="15%" src="https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png"/>
-						<img class="fragment no-shadow" width="15%" src="http://fsharp.org/img/logo/fsharp256.png"/>
+						<img class="no-shadow" width="15%" src="https://s3-eu-west-1.amazonaws.com/s3.housseniawriting.com/wp-content/uploads/2015/11/langage-python.jpg"/>
+						<img class="no-shadow" width="15%" src="http://www.enveille.info/images/Haskell-Logo.svg"/>
+						<img class="no-shadow" width="15%" src="http://warpedreality.org/images/logos/perl.gif"/>
+						<img class="no-shadow" width="15%" src="http://www.erlang-factory.com/upload/item/231/Erlang-logo-4-col.png"/>
+						<img class="no-shadow" width="15%" src="http://a.pragprog.com/magazines/2013-06/images/elixir-flame__riuc2g__.png"/>
+						<img class="no-shadow" width="15%" src="http://www.techclinch.com/wp-content/uploads/2014/12/LISP_logo_big.png"/>
+						<img class="no-shadow" width="15%" src="http://www.snyxius.com/blog/wp-content/uploads/2015/06/swift-language-logo.jpg"/>
+						<img class="no-shadow" width="15%" src="http://www.godatafy.com/wp-content/uploads/2015/11/scala.png"/>
+						<img class="no-shadow" width="15%" src="http://www.yomeva.com/wp-content/uploads/2014/02/Javascritp_yomeva_developpement.png"/>
+						<img class="no-shadow" width="15%" src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/550px-Java_Logo.svg.png"/>
+						<img class="no-shadow" width="15%" src="https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png"/>
+						<img class="no-shadow" width="15%" src="http://fsharp.org/img/logo/fsharp256.png"/>
 					</div>
 				</section>
 				<section>
@@ -105,11 +105,28 @@
 					<h2>En dev, c'est plus ça</h2>
 				</section>
 				<section>
-					<h2>Fonction mathématique</h2>
-					<p style="text-align: left; font-weight: bold; margin: 0px 100px 20px;">Soit</p>
-					<h3>carré(x) → x * x</h3>
-					<p style="text-align: left; font-weight: bold; margin: 0px 100px 20px;">On a</p>
-					<h3>carré(3) = 9</h3>
+					<pre><code>public class Agios {
+
+  private static int solde = 0;
+
+  public static void main(String[] args) throws Exception {
+    System.out.println("solde avant : " + solde + "€");
+    int penalite = agios(2 * 5);
+    solde = solde - penalite;
+    System.out.println("solde après une pénalité de " + penalite + "€ : " + solde + "€");
+    int penalite2 = agios(2 * 10);
+    solde = solde - penalite2;
+    System.out.println("solde après une pénalité de " + penalite2 + "€ : " + solde + "€");
+  }
+
+  private static int agios(int montant) {
+    solde = -5;
+    return montant;
+  }
+}</code></pre>
+					<pre><code>solde avant : 0€
+solde après une pénalité de 10€ : -15€
+solde après une pénalité de 20€ : -25€</code></pre>
 				</section>
 				<section>
 					<h2>Fonction pure</h2>
@@ -124,85 +141,65 @@
 					<h3 class="fragment" data-fragment-index="4">incr <span class="fragment highlight-red" data-fragment-index="5">n'est pas</span> une fonction <span class="fragment highlight-red" data-fragment-index="5">pure</span></h3>
 				</section>
 				<section>
-					<h2>Toutes les propriétés et bénéfices de la programmation fonctionnelle sont dérivées de l'absence d'effets secondaires lors de l'application d'une fonction</h2>
+					<pre><code>public class Agios {
+  public static void main(String[] args) throws Exception {
+    Compte compte = new Compte(0)
+        .agios(10)
+        .agios(20);
+    System.out.println("solde après deux agios : " + compte.solde + "€");
+  }
+  private static class Compte {
+    final int solde;
+    private Compte(int solde) {
+      this.solde = solde;
+    }
+    Compte agios(int montant){
+      return new Compte(solde-montant);
+    }
+  }
+}
+</code></pre>
+					<pre><code>solde après deux agios : -30€</code></pre>
 				</section>
 				<section>
-					<h2>Fonctions d'ordre supérieur</h2>
-					<h3>Fonctions qui prennent d'autres fonctions en paramètre</h3>
-					<h4 class="fragment">mult(x,y) → x * y</h4>
-					<h4 class="fragment">paire(f,x) → f(x,x)</h4>
-					<h4 class="fragment">carre(x) → paire(mult,x)</h4>
-					<h3 class="fragment">Fonctions qui retourne une fonction</h3>
-					<h4 class="fragment">puissance(n) → x → x ^ n</h4>
+					<pre><code>public class Agios {
+  public static void main(String[] args) throws Exception {
+    Compte compte = new Compte(0)
+        .agios(10)
+        .agios(20);
+    System.out.println("solde après deux agios : " + compte.solde + "€");
+  }
+  private static class Compte {
+    final int solde;
+    private Compte(int solde) {
+      this.solde = solde;
+    }
+    Compte agios(int montant){
+      return new Compte(solde-montant);
+    }
+  }
+}
+</code></pre>
+					<pre><code>solde après deux agios : -30€</code></pre>
 				</section>
 				<section>
-					<h2>JavaScript</h2>
-					<h3>Callbacks</h3>
-					<pre class="fragment" data-fragment-index="0"><code>// Simple GET request example:
-$http({
-  method: 'GET',
-  url: '/someUrl'
-}).then(function successCallback(response) {
-    // this callback will be called asynchronously
-    // when the response is available
-  }, function errorCallback(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-  });</code></pre>
-  					<h3 class="fragment">Permet d'exprimer un comportement</h3>
-				</section>
-				<section>
-					<h2>Immutabilité</h2>
-					<h3>Les fonctions passées en paramètres doivent être pures</h3>
-				</section>
-				<section>
-					<h2><font color="#a11b26">Scala</font></h2>
-					<h3>Langage basé sur la JVM</h3>
-					<h3>Fonctionnel <span style="text-decoration: underline">et</span> Objet</h3>
-					<h3>Fortement typé</h3>
-					<h3>Inférence de type</h3>
-				</section>
-				<section>
-					<h2>Types de définition</h2>
-					<ul>
-						<li><font color="#FFA200">var</font> variable (mutable)</li>
-						<li><font color="#FFA200">val</font> valeur (immutable)</li>
-						<li><font color="#FFA200">def</font> définition de fonction</li>
-					</ul>
-					<h3>Immutabilité fait partie du langage</h3>
-				</section>
-				<section>
-					<h2>Exemple</h2>
-					<h3>Fonction en paramètre</h3>
-					<pre class="fragment" data-fragment-index="0"><code>def mult(a: Long, b: Long): Long = a * b
-def paire(f: (Long, Long) => Long, x: Long) = f(x, x)
-def carre(x: Long) = paire(mult, x)</code></pre>
-				</section>
-				<section>
-					<h2>Exemple</h2>
-					<h3>Fonction en retour</h3>
-					<pre class="fragment" data-fragment-index="0"><code>def puissance(x:Long) = (y:Long) => Math.pow(y,x)
-def carre2(x: Long) = puissance(2)(x)
-def carre3 = puissance(2)</code></pre>
-				</section>
-				<section>
-					<img class="no-shadow" src="https://pbs.twimg.com/profile_images/3654221574/177d576ca8b82fff86e3693cad3ccd70_400x400.jpeg"/>
-					<h3>Eviter les "if" dans le code</h3>
-					<h3>Remplacer par du polymorphisme</h3>
-					<h3>Limiter les états intermédiaires</h3>
-				</section>
-				<section>
-					<h2>Pattern matching</h2>
-					<pre><code>def titre(x: Any): String = x match {
-  case 1 => "un"
-  case "Jean" => "Juan"
-  case Personne(nom, age) => s"Monsieur ${nom} agé de ${age} ans"
-  case nom: String => nom
-  case _ => ""
-}</code></pre>
-				</section>
-				<section data-background="#000">
-					<h2>One more thing</h2>
+					<pre><code>val elu = List(
+  ("A",1),("A",1),("A",2),("A",5),("A",5),
+  ("B",1),("B",1),("B",1),("B",2),("B",2),
+  ("C",2),("C",2),("C",3),("C",4),("C",4)
+)
+.groupBy(_._1) // grouper par candidat
+.mapValues(_
+  .map(_._2) // on travaille sur les scores
+  .sorted // on les trie
+  .drop(1) // on supprime le premier
+  .dropRight(1) // et le dernier
+)
+.mapValues(l => l.sum.toFloat / l.length) // moyenne du résultat
+.maxBy(_._2) // on garde celui qui a la meilleure moyenne
+._1 // on garde le nom du candidat
+println(elu)</code></pre>
+					<h3>Le code transcrit directement les règles métier</h3>
 				</section>
 				<section data-background="#000">
 					<img style="border: 0" src="http://scala.io/assets/images/logos/scalaio/scalaio_medium.png"/>
