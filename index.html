@@ -44,18 +44,26 @@
 					<p><a href="https://twitter.com/thebignet">@thebignet</a></p>
 				</section>
 				<section>
-					<h2><font color="#FFA200">But</font></h2>
-					<ul>
-						<li>plus <font color="#FFA200">concis</font></li>
-						<li>plus <font color="#FFA200">simple</font></li>
-						<li>plus <font color="#FFA200">expressif</font></li>
-						<li>moins <font color="#FFA200">de bugs</font></li>
-					</ul>
+					<h2><font color="#FFA200">Au lycée</font></h2>
+					<p><img width="400px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Function_machine2.svg/220px-Function_machine2.svg.png" style="background-color:white;"/></p>
 				</section>
-				<section data-background="#FFF">
-					<h1 style="color: #444">Pour faire simple</h1>
-					<h2 style="color: #444">Concerne l'utilisation de fonctions !</h2>
-					<p class="fragment"><img class="no-shadow" src="http://img01.deviantart.net/4a31/i/2012/331/e/2/captain_obvious_by_stuartmcghee-d5mbxhw.jpg" width="30%"/></p>
+				<section>
+					<h2><font color="#FFA200">Une entrée = une sortie</font></h2>
+					<p><img width="400px" src="https://2.bp.blogspot.com/-F2QhF3NTEpE/TtlZOgCcw4I/AAAAAAAAAJ8/j10LYBa9B8w/s1600/supercalc.png"/></p>
+				</section>
+				<section>
+					<h2><font color="#FFA200">L'apprentissage de la programmation</font></h2>
+					<pre><code>String msg = "Hello";
+void sayHello(){
+  msg += " ";
+  msg += "World";
+  msg += " ";
+  msg += "!";
+  System.out.println(msg);
+}
+sayHello(); // Output : Hello World !
+sayHello(); // Output : Hello World ! World !
+</code></pre>
 				</section>
 				<section>
 					<h2><font color="#FFA200">Code impératif</font></h2>
@@ -79,92 +87,42 @@
 					<h3>Ordinateurs encore basés sur cette architecture</h3>
 					<h3>Langage impératif en découle</h3>
 				</section>
-				<section data-background="#FFF">
-					<h2 style="color: #444">Exemples de langages fonctionnels</h2>
-					<div>
-						<img class="no-shadow" width="15%" src="https://s3-eu-west-1.amazonaws.com/s3.housseniawriting.com/wp-content/uploads/2015/11/langage-python.jpg"/>
-						<img class="no-shadow" width="15%" src="http://www.enveille.info/images/Haskell-Logo.svg"/>
-						<img class="no-shadow" width="15%" src="http://warpedreality.org/images/logos/perl.gif"/>
-						<img class="no-shadow" width="15%" src="http://www.erlang-factory.com/upload/item/231/Erlang-logo-4-col.png"/>
-						<img class="no-shadow" width="15%" src="http://a.pragprog.com/magazines/2013-06/images/elixir-flame__riuc2g__.png"/>
-						<img class="no-shadow" width="15%" src="http://www.techclinch.com/wp-content/uploads/2014/12/LISP_logo_big.png"/>
-						<img class="no-shadow" width="15%" src="http://www.snyxius.com/blog/wp-content/uploads/2015/06/swift-language-logo.jpg"/>
-						<img class="no-shadow" width="15%" src="http://www.godatafy.com/wp-content/uploads/2015/11/scala.png"/>
-						<img class="no-shadow" width="15%" src="http://www.yomeva.com/wp-content/uploads/2014/02/Javascritp_yomeva_developpement.png"/>
-						<img class="no-shadow" width="15%" src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/550px-Java_Logo.svg.png"/>
-						<img class="no-shadow" width="15%" src="https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png"/>
-						<img class="no-shadow" width="15%" src="http://fsharp.org/img/logo/fsharp256.png"/>
-					</div>
+				<section>
+					<h2>Fibonacci</h2>
+					<pre><code>F(n) = F(n-1) + F(n-2)
+F(0)=0
+F(1)=1</code></pre>
 				</section>
 				<section>
-					<h1>Immutabilité</h1>
-				</section>
-				<section data-background="http://i.vimeocdn.com/video/476889405_1280x720.jpg">
-					<h1>Mutabilité ?</h1>
-				</section>
-				<section data-background="https://i.ytimg.com/vi/8zgJj0HysbM/maxresdefault.jpg">
-					<h1>Mutabilité !</h1>
-					<h2>En dev, c'est plus ça</h2>
-				</section>
-				<section>
-					<pre><code>public class Agios {
-
-  private static int solde = 0;
-
-  public static void main(String[] args) throws Exception {
-    System.out.println("solde avant : " + solde + "€");
-    int penalite = agios(2 * 5);
-    solde = solde - penalite;
-    System.out.println("solde après une pénalité de " + penalite + "€ : " + solde + "€");
-    int penalite2 = agios(2 * 10);
-    solde = solde - penalite2;
-    System.out.println("solde après une pénalité de " + penalite2 + "€ : " + solde + "€");
+					<h2>Fibonacci impératif</h2>
+					<pre><code class="java">public static int fibonacci(int number) {
+  int fib1 = 1;
+  int fib2 = 1;
+  int fibonacci = fib1;
+  for (int i = 2; i < number; i++) {
+    fibonacci = fib1 + fib2;
+    fib1 = fib2;
+    fib2 = fibonacci;
   }
-
-  private static int agios(int montant) {
-    solde = -5;
-    return montant;
-  }
-}</code></pre>
-					<pre><code>solde avant : 0€
-solde après une pénalité de 10€ : -15€
-solde après une pénalité de 20€ : -25€</code></pre>
-				</section>
-				<section>
-					<h2>Fonction pure</h2>
-					<h3>Les paramètres ne sont pas modifiés</h3>
-					<h3>Ne dépend pas d'un système externe</h3>
-					<h3>Ne lève pas d'exception</h3>
-					<pre class="fragment" data-fragment-index="0"><code>function carre(x){
-	return x * x;
-}</code></pre>
-					<h3 class="fragment" data-fragment-index="1">carre <span class="fragment highlight-green" data-fragment-index="2">est</span> une fonction <span class="fragment highlight-green" data-fragment-index="2">pure</span></h3>
-					<pre class="fragment" data-fragment-index="3"><code>function incr(x){
-	return x++;
-}</code></pre>
-					<h3 class="fragment" data-fragment-index="4">incr <span class="fragment highlight-red" data-fragment-index="5">n'est pas</span> une fonction <span class="fragment highlight-red" data-fragment-index="5">pure</span></h3>
-				</section>
-				<section>
-					<pre><code>public class Agios {
-  public static void main(String[] args) throws Exception {
-    Compte compte = new Compte(0)
-        .agios(10)
-        .agios(20);
-    System.out.println("solde après deux agios : " + compte.solde + "€");
-  }
-  private static class Compte {
-    final int solde;
-    private Compte(int solde) {
-      this.solde = solde;
-    }
-    Compte agios(int montant){
-      return new Compte(solde-montant);
-    }
-  }
+  return fibonacci;
 }
-</code></pre>
-					<pre><code>solde après deux agios : -30€</code></pre>
-					<p><img src="img/agio.png" width="70%"></p>
+
+for(int i = 1; i  <= 10; i++) {
+  System.out.print(fibonacci(i) +" ");
+}
+// Output: 1 1 2 3 5 8 13 21 34 55</code></pre>
+				</section>
+				<section>
+					<h2>Fibonacci fonctionnel</h2>
+					<pre><code>Stream.iterate(
+  new int[]{1, 1},
+  fib -> new int[] {fib[1], fib[0] + fib[1]}
+)
+.mapToInt(fib -> fib[0])
+.limit(10)
+.forEach(fib -> System.out.print(fib + " "));
+// Output: 1 1 2 3 5 8 13 21 34 55</code></pre>
+					<h4>correspond à la définition mathématique</h4>
 				</section>
 				<section>
 					<h3>Jugement <i>quasi</i>-majoritaire</h3>
@@ -184,17 +142,36 @@ solde après une pénalité de 20€ : -25€</code></pre>
 .maxBy(_._2) // on garde celui qui a la meilleure moyenne
 ._1 // puis on garde le nom du candidat
 println(elu)</code></pre>
-					<h3>Le code traduit directement les règles métier</h3>
+					<h4>Le code traduit directement les règles métier</h4>
+					<h4>La donnée ne va que dans un sens</h4>
 				</section>
 				<section>
-					<h2>Mais encore</h2>
-					<h3>passer des fonctions en paramètre</h3>
+					<h2><font color="#FFA200">Mais encore</font></h2>
+					<h3>Passer des fonctions en paramètre</h3>
 					<h3>Composer des fonctions</h3>
-					<h3>Typage fort</h3>
 					<h3>Chainer des appels (ie fluent API)</h3>
+					<h3>Théorie des groupes (algébriques)</h3>
+					<h3>Typage fort (issu de la théorie des groupes)</h3>
+				</section>
+				<section data-background="#FFF">
+					<h2 style="color: #444">Exemples de langages fonctionnels</h2>
+					<div>
+						<img class="no-shadow" width="15%" src="https://s3-eu-west-1.amazonaws.com/s3.housseniawriting.com/wp-content/uploads/2015/11/langage-python.jpg"/>
+						<img class="no-shadow" width="15%" src="http://www.enveille.info/images/Haskell-Logo.svg"/>
+						<img class="no-shadow" width="15%" src="http://warpedreality.org/images/logos/perl.gif"/>
+						<img class="no-shadow" width="15%" src="http://www.erlang-factory.com/upload/item/231/Erlang-logo-4-col.png"/>
+						<img class="no-shadow" width="15%" src="http://a.pragprog.com/magazines/2013-06/images/elixir-flame__riuc2g__.png"/>
+						<img class="no-shadow" width="15%" src="http://www.techclinch.com/wp-content/uploads/2014/12/LISP_logo_big.png"/>
+						<img class="no-shadow" width="15%" src="http://www.snyxius.com/blog/wp-content/uploads/2015/06/swift-language-logo.jpg"/>
+						<img class="no-shadow" width="15%" src="http://www.godatafy.com/wp-content/uploads/2015/11/scala.png"/>
+						<img class="no-shadow" width="15%" src="http://www.yomeva.com/wp-content/uploads/2014/02/Javascritp_yomeva_developpement.png"/>
+						<img class="no-shadow" width="15%" src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/550px-Java_Logo.svg.png"/>
+						<img class="no-shadow" width="15%" src="https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png"/>
+						<img class="no-shadow" width="15%" src="http://fsharp.org/img/logo/fsharp256.png"/>
+					</div>
 				</section>
 				<section>
-					<h2>Utilisations de la programmation fonctionnelle</h2>
+					<h2><font color="#FFA200">Utilisations de la programmation fonctionnelle</font></h2>
 					<h3>MapReduce</h3>
 					<h3>React, Redux</h3>
 					<h3>Reactive Manifesto ...</h3>
